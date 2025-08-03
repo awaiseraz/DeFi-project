@@ -8,8 +8,17 @@ import {ERC20Pausable} from "@openzeppelin/contracts/token/ERC20/extensions/ERC2
 import {ERC20Permit} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
-contract DeFiToken is ERC20, ERC20Burnable, ERC20Pausable, Ownable, ERC20Permit {
-    constructor(address recipient, address initialOwner)
+contract DeFiToken is
+    ERC20,
+    ERC20Burnable,
+    ERC20Pausable,
+    Ownable,
+    ERC20Permit
+{
+    constructor(
+        address recipient,
+        address initialOwner
+    )
         ERC20("DeFi Token", "DFT")
         Ownable(initialOwner)
         ERC20Permit("DeFi Token")
@@ -31,10 +40,18 @@ contract DeFiToken is ERC20, ERC20Burnable, ERC20Pausable, Ownable, ERC20Permit 
 
     // The following functions are overrides required by Solidity.
 
-    function _update(address from, address to, uint256 value)
-        internal
-        override(ERC20, ERC20Pausable)
-    {
+    function _update(
+        address from,
+        address to,
+        uint256 value
+    ) internal override(ERC20, ERC20Pausable) {
         super._update(from, to, value);
+    }
+
+    function transferWithAutoBurn(address to, uint256 amount) public {
+        require(balanceOf(msg.sender) >= amount, "Not enough tokens");
+        uint256 burnAmount = amount/10;
+        _burn(msg.sender, burnAmount);
+        transfer(to, amount - burnAmount);
     }
 }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="app.js"></script>
+    <title>DeFi Token DApp</title>
+
+</head>
+
+<body>
+    <style src="style.css"></style>
+    <header>
+        <h1>DeFi Token DApp</h1>
+        <button class="wallet-btn" id="connectWallet">Connect Wallet</button>
+    </header>
+
+    <div class="info-container">
+        <div class="info-box">
+            <h3>Total Supply</h3>
+            <p id="totalSupply">0 DFT</p>
+        </div>
+        <div class="info-box">
+            <h3>Your Balance</h3>
+            <p id="userBalance">0 DFT</p>
+        </div>
+    </div>
+
+    <div class="action-container">
+        <div class="action-box">
+            <h2>Transfer Tokens</h2>
+            <form id="transferForm">
+                <input type="text" id="recipient" placeholder="Recipient Address" required>
+                <input type="number" id="transferAmount" placeholder="Amount" required>
+                <button type="submit">Transfer</button>
+            </form>
+        </div>
+        <div class="action-box">
+            <h2>Transfer with Auto-Burn</h2>
+            <form id="burnForm">
+                <input type="text" id="burnRecipient" placeholder="Recipient Address" required>
+                <input type="number" id="burnAmount" placeholder="Amount" required>
+                <button type="submit">Transfer & Burn</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
