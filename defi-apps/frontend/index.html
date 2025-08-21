@@ -4,14 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script type="module" src="app.js"></script>
     <title>DeFi Token DApp</title>
-
+    <link rel="stylesheet" href="style.css">
+    <!-- <script type="module" src="app.js"></script> -->
+     <!-- Add WalletConnect CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
+    <!-- Add ethers.js -->
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
 </head>
 
 <body>
-    <style src="style.css"></style>
+    <!-- <style src="style.css"></style> -->
     <header>
         <h1>DeFi Token DApp</h1>
         <button class="wallet-btn" id="connectWallet">Connect Wallet</button>
