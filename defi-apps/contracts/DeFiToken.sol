@@ -16,14 +16,14 @@ contract DeFiToken is
     ERC20Permit
 {
     constructor(
-        address recipient,
-        address initialOwner
+        // address recipient,
+        // address initialOwner
     )
         ERC20("DeFi Token", "DFT")
-        Ownable(initialOwner)
+        Ownable(msg.sender)
         ERC20Permit("DeFi Token")
     {
-        _mint(recipient, 1000000 * 10 ** decimals());
+        _mint(msg.sender, 1000000 * 10 ** decimals());
     }
 
     function pause() public onlyOwner {

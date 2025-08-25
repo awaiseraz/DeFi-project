@@ -4,14 +4,10 @@ pragma solidity ^0.8.0;
 interface IAMMRouter {
     function factory() external view returns (address);
 
-    function getReserves(address tokenA, address tokenB)
-        external
-        view
-        returns (
-            uint256 reserveA,
-            uint256 reserveB,
-            address pair
-        );
+    function getReserves(
+        address tokenA,
+        address tokenB
+    ) external view returns (uint256 reserveA, uint256 reserveB, address pair);
 
     function addLiquidity(
         address tokenA,
@@ -22,13 +18,7 @@ interface IAMMRouter {
         uint256 amountBMin,
         address to,
         uint256 deadline
-    )
-        external
-        returns (
-            uint256 amountA,
-            uint256 amountB,
-            uint256 liquidity
-        );
+    ) external returns (uint256 amountA, uint256 amountB, uint256 liquidity);
 
     function removeLiquidity(
         address tokenA,
